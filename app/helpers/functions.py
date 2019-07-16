@@ -21,7 +21,7 @@ def get_filename(file_path):
 def generate_key(password, salt):
     password = password.encode()
     kdf = PBKDF2HMAC(
-        algorithm=hashes.SHA256(),
+        algorithm=hashes.SHA512(),
         length=32,
         salt=salt,
         iterations=100000,

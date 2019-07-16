@@ -2,6 +2,7 @@
 import base64
 import os
 
+from cryptography.fernet import Fernet
 from flask import json
 from flask import make_response
 from flask import request
@@ -32,14 +33,13 @@ def upload_file():
         file_path = create_encrypted_file(file_sent.filename, file_sent.read(), key, app.config['UPLOAD_FOLDER'])
         file_id = save_file(file_sent.mimetype, file_path)
         return app.response_class(
-            response=json.dumps({'id': file_id, 'key': str(key)}),
+            response=json.dumps({'id': file_id, 'key': key.decode("utf-8")}),
             status=200,
             mimetype='application/json'
         )
     except Exception as e:
         return app.response_class(
-            response=json.dumps({'message': str(e)}),
-            # response=json.dumps({'message': "something went wrong, I know what but I'm not a snitch"}),
+            response=json.dumps({'message': "something went wrong, I know what but I'm not a snitch"}),
             status=500,
             mimetype='application/json'
         )
@@ -61,8 +61,7 @@ def download_file(file_id):
         return make_response((decrypt_file(file_object.path, key), headers))
     except Exception as e:
         return app.response_class(
-            response=json.dumps({'message': str(e)}),
-            # response=json.dumps({'message': "something went wrong, I know what but I'm not a snitch"}),
+            response=json.dumps({'message': "something went wrong, I know what but I'm not a snitch"}),
             status=500,
             mimetype='application/json'
         )
