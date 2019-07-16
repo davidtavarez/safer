@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+sudo rm -Rf app/migrations
+sudo rm app/safer.db
 sudo rm -Rf app/.pytest_cache app/__pycache__ app/views/__pycache__ app/helpers/__pycache__
 
 app="safer"

@@ -8,7 +8,7 @@ ENV FLASK_APP=main.py
 ENV FLASK_ENV=production
 COPY ./migrate.sh migrate.sh
 RUN chmod u+x ./migrate.sh
-ENTRYPOINT ./migrate.sh
+RUN ./migrate.sh
 COPY ./test.sh test.sh
 RUN chmod u+x ./test.sh
-ENTRYPOINT ./test.sh
+RUN ./test.sh
