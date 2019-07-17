@@ -56,7 +56,7 @@ Great! we're ready to go!
 
 So the server is running on port: `56733`, we can access the server using `http`:
 
-![Bad jokes](/screenshots/index.png "Logo Title Text 1")
+![Bad jokes](https://raw.githubusercontent.com/davidtavarez/safer/master/screenshots/index.png)
 
 
 ### Using cURL
