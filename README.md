@@ -1,6 +1,6 @@
 # Safer
 
-Safer is a dockerized **RESTful API** for storing encrypted file.
+Safer is a dockerized **RESTful API** for storing encrypted files.
 
 ## Installation
 
