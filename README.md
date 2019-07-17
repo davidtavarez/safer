@@ -64,7 +64,7 @@ So the server is running on port: `56733`, we can access the server using `http`
 Uploading files:
 
 ```bash
-$ curl -H 'Expect:' -F "file=@/PATH/TO/FILE" -F "password=PASSWORD" http://localhost:56733/file/upload
+$ curl -H 'Expect:' -F "file=@/PATH/TO/FILE.EXT" -F "password=PASSWORD" http://localhost:56733/file/upload
 {"id": 1, "key": "QRhtN5X4oGR8GxlLSEL1GJJlZgf64VXyMkx7YIbvVK4="}
 ```
 
