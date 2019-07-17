@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-sudo rm -Rf app/migrations
-sudo rm app/safer.db
-sudo rm -Rf app/.pytest_cache app/__pycache__ app/views/__pycache__ app/helpers/__pycache__
+echo 'Deleting cache...'
+sudo rm -Rf ./migrations/ ./src/safer.db ./.pytest_cache ./__pycache__ src/.pytest_cache src/__pycache__ src/views/__pycache__ src/helpers/__pycache__
+
+docker stop $(docker ps -aq)
+docker system prune -a
 
 app="safer"
 docker build -t ${app} .
-docker run -d -p 56733:80 \
-  --name=${app} \
-  -v $PWD:/app ${app}
+docker run --rm -d -p 56733:80 --name=${app} -v $PWD:/app ${app}

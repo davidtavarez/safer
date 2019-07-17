@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-pytest -v tests.py
+echo 'Running tests...'
+pytest -vvv tests.py

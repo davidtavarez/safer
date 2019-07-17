@@ -1,15 +1,13 @@
 # coding=utf-8
+import json
 import os
 from io import BytesIO
 
 import pytest
 
-
-import json
-
-from app import app
-from app.helpers.functions import get_filename, get_random_bad_joke, generate_key, encrypt, decrypt, \
+from src.functions import get_filename, get_random_bad_joke, generate_key, encrypt, decrypt, \
     create_encrypted_file, decrypt_file, generate_random_string
+from main import app
 
 
 def test_get_filename():
@@ -91,11 +89,17 @@ def test_404(client):
 def test_upload_download_file(client):
     file_content = b'file content'
     password = 'password'
+
     data = {'file': (BytesIO(file_content), 'test.txt'), 'password': password}
     response = client.post('/file/upload', data=data, content_type='multipart/form-data')
+    print(response.data)
     assert response.status_code == 200
+
     results = json.loads(response.data)
+
     assert 'id' in results
     assert 'key' in results
+
     response = client.post('/file/download/{}'.format(results['id']), data={'key': results['key']})
+
     assert response.data == file_content
