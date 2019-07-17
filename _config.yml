@@ -1,7 +1,7 @@
 theme: jekyll-theme-cayman
 
 # Name of website
-title: Safer, a dockerized RESTful API for storing encrypted files
+title: A dockerized RESTful API for storing encrypted files
 
 # Short description of your site
 description: Dockerized RESTful API for storing encrypted files
