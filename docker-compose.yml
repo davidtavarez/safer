@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  tor:
+    image: goldy/tor-hidden-service:0.4.0.5
+    links:
+      - safer
+    hostname: onion
+    environment:
+      SAFER_TOR_SERVICE_HOSTS: 80:safer:80
+      SAFER_TOR_SERVICE_VERSION: 3
+      SAFER_TOR_SERVICE_KEY: |
+        PT0gZWQyNTUxOXYxLXNlY3JldDogdHlwZTAgPT0AAAB4Arvdx5kzsF8dK+OUDOSt
+        13Zytck6JM1xxFp3ftGhRGlJTZ1X2wrztcqzXYuQftzxZXB0wTYwJl+cUVm3RmH7
+
+  safer:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: safer
+    volumes:
+      ['./:/app']
+    ports:
+      ['56733:80']
+    hostname: safer
