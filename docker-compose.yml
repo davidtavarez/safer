@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  tor:
+    image: goldy/tor-hidden-service:0.4.0.5
+    links:
+      - safer
+    hostname: service
+    environment:
+      SAFER_TOR_SERVICE_HOSTS: 80:safer:80
+      SAFER_TOR_SERVICE_VERSION: 3
+
+  safer:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: safer
+    volumes:
+      ['./:/app']
+    ports:
+      ['56733:80']
+    hostname: safer
