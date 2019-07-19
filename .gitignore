@@ -1,5 +1,4 @@
 .idea/
-./__pycache__/
-./src/__pycache__/
-./src/*.db
-./*.db
+__pycache__/
+/src/__pycache__/
+src/*.db

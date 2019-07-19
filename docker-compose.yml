@@ -5,11 +5,10 @@ services:
     image: goldy/tor-hidden-service:0.4.0.5
     links:
       - safer
-    hostname: onion
+    hostname: service
     environment:
       SAFER_TOR_SERVICE_HOSTS: 80:safer:80
       SAFER_TOR_SERVICE_VERSION: 3
-      SAFER_TOR_SERVICE_KEY: {PRIVATE_KEY_BASE64}
 
   safer:
     build:
