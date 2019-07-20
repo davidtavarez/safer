@@ -6,7 +6,7 @@ Safer is a torifyed dockerized **RESTful API** for storing encrypted files.
 
 First, we need **Docker Compose**. Please refer to the official documentation [here](https://docs.docker.com/compose/install/).
 
-After installing Docker, clone this repo and move into the `safer` folder:
+After installing Docker Compose, clone this repo and move into the `safer` folder:
 
 ```bash
 $ git clone https://github.com/davidtavarez/safer.git
