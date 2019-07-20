@@ -2,6 +2,7 @@ version: '3'
 
 services:
   tor:
+    container_name: saferhiddenservice
     image: goldy/tor-hidden-service:0.4.0.5
     links:
       - safer
@@ -11,6 +12,7 @@ services:
       SAFER_TOR_SERVICE_VERSION: 3
 
   safer:
+    container_name: saferapi
     build:
       context: ./
       dockerfile: Dockerfile

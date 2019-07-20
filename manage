@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+# Reset
+Color_Off='\033[0m'       # Text Reset
+
+# Regular Colors
+Black='\033[0;30m'        # Black
+Red='\033[0;31m'          # Red
+Green='\033[0;32m'        # Green
+Yellow='\033[0;33m'       # Yellow
+Blue='\033[0;34m'         # Blue
+Purple='\033[0;35m'       # Purple
+Cyan='\033[0;36m'         # Cyan
+White='\033[0;37m'        # White
+
+# Bold
+BBlack='\033[1;30m'       # Black
+BRed='\033[1;31m'         # Red
+BGreen='\033[1;32m'       # Green
+BYellow='\033[1;33m'      # Yellow
+BBlue='\033[1;34m'        # Blue
+BPurple='\033[1;35m'      # Purple
+BCyan='\033[1;36m'        # Cyan
+BWhite='\033[1;37m'       # White
+
+printf "\033c" # Clear screen
+
+printf "${BCyan}"
+cat << "EOF"
+  _____  ____  _____  ___  ____
+ / ___/ /    ||     |/  _]|    \
+(   \_ |  o  ||   __/  [_ |  D  )
+ \__  ||     ||  |_|    _]|    /
+ /  \ ||  _  ||   _]   [_ |    \
+ \    ||  |  ||  | |     ||  .  \
+  \___||__|__||__| |_____||__|\_|
+EOF
+printf "${Color_Off}"
+
+printf "\n${White}Booting up Docker Containers...${Color_Off}\n"
+docker-compose up -d
+OUTPUT=$(docker exec -ti saferhiddenservice onions --json | python -c "import sys, json; print json.load(sys.stdin)['safer'][0].split(':')[0]")
+URL="http://${OUTPUT}/"
+
+printf "\n${White}Finding the .onion URL...${Color_Off}\n"
+printf "${White}${BCyan}$OUTPUT${Color_Off}\n"
+
+printf "\n${White}Adding an ${BCyan}upload${White} function to your ${BCyan}.bash_profile${White} file...${Color_Off}\n"
+printf "${Yellow}"
+COMMAND="function upload() { printf \"Uploading file...\n\"; curl --socks5-hostname 127.0.0.1:9050 -H 'Expect:' -F \"file=@\${1}\" -F \"password=\${2}\" http://tx6j66gbja42nvg6sreumixajlwknlpngdysdw6fbkff3pydptwa26id.onion/file/upload; printf \"\nDone.\n\"; }"
+echo $COMMAND >> ~/.bash_profile
+printf "${Color_Off}"
+printf "\n"
+source ~/.bash_profile
+
