@@ -5,9 +5,8 @@ from os import sys, path
 
 import pytest
 
-sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
-
 try:
+    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
     from .main import app
 except ImportError:
     from app.main import app

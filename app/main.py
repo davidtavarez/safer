@@ -4,9 +4,8 @@ from os import sys, path
 from flask_migrate import Migrate, MigrateCommand, Manager
 from flask_sqlalchemy import SQLAlchemy
 
-sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
-
 try:
+    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
     from .src import create_app
 except ImportError:
     from app.src import create_app
