@@ -1,9 +1,15 @@
 import os
+from os import sys, path
 
 from flask_migrate import Migrate, MigrateCommand, Manager
 from flask_sqlalchemy import SQLAlchemy
 
-from .src import create_app
+sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+
+try:
+    from .src import create_app
+except ImportError:
+    from app.src import create_app
 
 app = create_app(os.environ['UPLOAD_FOLDER'], os.environ['DB_FOLDER'])
 

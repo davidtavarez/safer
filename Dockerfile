@@ -6,4 +6,3 @@ ENV FLASK_APP=main.py FLASK_ENV=production UPLOAD_FOLDER='/tmp/' DEBUG=False DB_
 COPY ./app/ /app/
 
 RUN pip install -r ./requirements.txt
-RUN pwd && ls -lh && flask db init ; flask db migrate -m '.'; flask db upgrade; pytest -vvv tests.py

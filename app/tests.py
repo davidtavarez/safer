@@ -1,12 +1,23 @@
-import json
 import os
+import json
 from io import BytesIO
+from os import sys, path
 
 import pytest
 
-from .main import app
-from app.src.functions import get_filename, get_random_bad_joke, generate_key, encrypt, decrypt, \
-    create_encrypted_file, decrypt_file, generate_random_string
+sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+
+try:
+    from .main import app
+except ImportError:
+    from app.main import app
+
+try:
+    from .src.functions import get_filename, get_random_bad_joke, generate_key, encrypt, decrypt, \
+        create_encrypted_file, decrypt_file, generate_random_string
+except ImportError:
+    from app.src.functions import get_filename, get_random_bad_joke, generate_key, encrypt, decrypt, \
+        create_encrypted_file, decrypt_file, generate_random_string
 
 
 def test_get_filename():
