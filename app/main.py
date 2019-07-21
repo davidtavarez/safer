@@ -1,12 +1,11 @@
-# coding=utf-8
 import os
 
 from flask_migrate import Migrate, MigrateCommand, Manager
 from flask_sqlalchemy import SQLAlchemy
 
-from src import create_app
+from .src import create_app
 
-app = create_app()
+app = create_app(os.environ['UPLOAD_FOLDER'], os.environ['DB_FOLDER'])
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -20,7 +19,7 @@ class File(db.Model):
     mimetype = db.Column(db.String(64), index=True, unique=False)
     path = db.Column(db.String(120), index=True, unique=True)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return self.filepath
 
 

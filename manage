@@ -4,10 +4,7 @@ Color_Off='\033[0m'       # Text Reset
 White='\033[0;37m'        # White
 BCyan='\033[1;36m'        # Cyan
 
-printf "\033c" # Clear screen
-
 help_env() {
-
     printf "${BCyan}"
 cat << "EOF"
   _____  ____  _____  ___  ____

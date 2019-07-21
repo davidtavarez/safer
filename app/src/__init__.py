@@ -2,20 +2,19 @@ import os
 
 from flask import Flask
 
-from src.views import index, upload_file, download_file
+from app.src.views import index, upload_file, download_file
 
 
-def create_app():
-    basedir = os.path.abspath(os.path.dirname(__file__))
+def create_app(upload_folder: str, basedir: str, ) -> Flask:
     app = Flask(__name__)
-    app.config['UPLOAD_FOLDER'] = os.environ['UPLOAD_FOLDER']  # This folder should be encrypted
+    app.config['UPLOAD_FOLDER'] = upload_folder
     app.config['MAX_CONTENT_LENGTH'] = 20 * 1024 * 1024
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'safer.db')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     app.add_url_rule('/', 'index', index, methods=['GET'])
     app.add_url_rule('/file/upload', 'upload', upload_file, methods=['POST'])
-    app.add_url_rule('/file/download/<file_id>', 'download', download_file, methods=['POSt'])
+    app.add_url_rule('/file/download/<file_id>', 'download', download_file, methods=['POST'])
 
     @app.errorhandler(404)
     def page_not_found(ex):

@@ -13,12 +13,12 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from werkzeug.utils import secure_filename
 
 
-def get_filename(file_path):
+def get_filename(file_path: str) -> str:
     head, file_name = os.path.split(file_path)
     return file_name
 
 
-def generate_key(password, salt):
+def generate_key(password: str, salt: bytes) -> str:
     password = password.encode()
     kdf = PBKDF2HMAC(
         algorithm=hashes.SHA512(),
@@ -30,15 +30,15 @@ def generate_key(password, salt):
     return base64.urlsafe_b64encode(kdf.derive(password))
 
 
-def encrypt(data, key):
+def encrypt(data, key) -> bytes:
     return Fernet(key).encrypt(base64.b64encode(data))
 
 
-def decrypt(data, key):
+def decrypt(data, key) -> bytes:
     return base64.b64decode(Fernet(key).decrypt(data))
 
 
-def create_encrypted_file(filename, content, key, base_path):
+def create_encrypted_file(filename: str, content, key, base_path: str) -> str:
     filename = secure_filename(filename)
     folder = os.path.join(base_path, str(time.time()))
     os.makedirs(folder)
@@ -53,13 +53,13 @@ def create_encrypted_file(filename, content, key, base_path):
     return file_path
 
 
-def decrypt_file(file_path, key):
+def decrypt_file(file_path: str, key) -> bytes:
     with open(file_path, 'rb') as f:
         data = f.read()
     return decrypt(data, key)
 
 
-def get_random_bad_joke():
+def get_random_bad_joke() -> str:
     bad_jokes = [
         "There are only 10 types of people in the world: those that understand binary and those that don't.",
         "Computers make very fast, very accurate mistakes.",
@@ -127,6 +127,6 @@ def get_random_bad_joke():
     return random.choice(bad_jokes)
 
 
-def generate_random_string(min_char=4, max_char=6):
+def generate_random_string(min_char: int = 4, max_char: int = 6) -> str:
     all_characters = string.ascii_letters + string.digits
     return ''.join(random.choice(all_characters) for x in range(random.randint(min_char, max_char)))

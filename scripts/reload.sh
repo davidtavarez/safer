@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker-compose -f restart;
+docker-compose docker-compose.yml -f restart;

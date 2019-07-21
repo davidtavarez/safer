@@ -1,13 +1,12 @@
-# coding=utf-8
 import json
 import os
 from io import BytesIO
 
 import pytest
 
-from src.functions import get_filename, get_random_bad_joke, generate_key, encrypt, decrypt, \
+from .main import app
+from app.src.functions import get_filename, get_random_bad_joke, generate_key, encrypt, decrypt, \
     create_encrypted_file, decrypt_file, generate_random_string
-from main import app
 
 
 def test_get_filename():

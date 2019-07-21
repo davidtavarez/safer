@@ -18,7 +18,7 @@ services:
       dockerfile: Dockerfile
     image: safer
     volumes:
-      ['./:/app']
+      ['./app:/app']
     ports:
       ['56733:80']
     hostname: safer

@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker-compose -f stop;
+docker-compose stop;
