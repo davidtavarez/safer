@@ -1,4 +1,4 @@
-theme: jekyll-theme-cayman
+theme: jekyll-theme-tactile
 
 # Name of website
 title: A dockerized RESTful API for storing encrypted files
