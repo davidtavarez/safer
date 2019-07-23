@@ -2,7 +2,8 @@
 
 printf "\n${White}Booting up Docker Containers...${Color_Off}\n"
 docker-compose up -d
-
+printf "\n${White}Waiting 20 seconds, tor is booting up...${Color_Off}\n"
+sleep 20
 printf "\n${White}Finding the .onion URL...${Color_Off}\n"
 OUTPUT=$(docker exec -ti saferhiddenservice onions --json | python -c "import sys, json; print json.load(sys.stdin)['safer'][0].split(':')[0]")
 URL="http://${OUTPUT}/"
