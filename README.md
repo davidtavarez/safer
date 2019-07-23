@@ -43,7 +43,8 @@ Usage: manage [option...] --{init|start|halt|clean|stats}
 
 ```
 
-Great! we're ready to go!
+Great! we're ready to go! We just need to run: `bash manage init`.
+
 
 ## Usage
 
