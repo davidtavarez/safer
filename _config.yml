@@ -1,7 +1,7 @@
 theme: jekyll-theme-tactile
 
 # Name of website
-title: A dockerized RESTful API for storing encrypted files
+title: A torifyed dockerized RESTful API for storing encrypted files
 
 # Short description of your site
-description: Dockerized RESTful API for storing encrypted files
+description: Storing encrypted files using tor
