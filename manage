@@ -22,7 +22,7 @@ EOF
     echo "Usage: $0 [option...] --{init|start|halt|clean|stats}"
     echo ""
     echo "   --- MANAGEMENT ---"
-    echo "   -i, --init, init           Initializes the development environment."
+    echo "   -i, --init, init           Initializes the containers."
     echo "   -s, --start, start         Starts all configured services."
     echo "   -p, --halt, halt           Stops all configured services."
     echo "   -r, --reload, reload       Restart all configured services."

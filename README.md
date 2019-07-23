@@ -1,6 +1,6 @@
 # Safer
 
-Safer is a RESTful API written in Python using Flask which is mount it inside a docker container and accessible via Tor. Each file is encrypted itself and can be only decrypted using a **Key**; this key is generated using a *password*. In order download the file you will need the *ID* of the file and the *Key*. Since the key isn't stored by the API will need to save it by yourself. The funny thing is that a [Hidden Service](https://2019.www.torproject.org/docs/onion-services) is created and an **.onion v3** is generated.
+Safer is a RESTful API written in Python using Flask which is mount it inside a docker container and it's accessible via Tor. All files are encrypted and can be only decrypted by using a **Key**; this key is generated from a *password*. In order download any file you need the *ID* of the file and the *Key*. Since the key isn't stored by the server you will need to save it by yourself. The funny thing is that a [Hidden Service](https://2019.www.torproject.org/docs/onion-services) is created and an **.onion v3** is generated.
 
 ## Installation
 
@@ -29,7 +29,7 @@ Usage: manage [-h]
 Usage: manage [option...] --{init|start|halt|clean|stats}
 
    --- MANAGEMENT ---
-   -i, --init, init           Initializes the development environment.
+   -i, --init, init           Initializes the containers.
    -s, --start, start         Starts all configured services.
    -p, --halt, halt           Stops all configured services.
    -r, --relaod, reload       Restart all configured services.
