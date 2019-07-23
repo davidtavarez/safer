@@ -63,7 +63,7 @@ $ download 1 "QRhtN5X4oGR8GxlLSEL1GJJlZgf64VXyMkx7YIbvVK4\=" FILE.EXT
 
 ## Thanks
 
-[Christophe Mehay](https://github.com/cmehay) because his amazon work on [goldy/tor-hidden-service/](https://hub.docker.com/r/goldy/tor-hidden-service/)
+[Christophe Mehay](https://github.com/cmehay) for his amazing work on [goldy/tor-hidden-service/](https://hub.docker.com/r/goldy/tor-hidden-service/)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
