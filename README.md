@@ -1,6 +1,6 @@
 # Safer
 
-Safer is a torifyed dockerized **RESTful API** for storing encrypted files.
+Safer is a RESTful API written in Python using Flask which is mount it inside a docker container and accessible via Tor. Each file is encrypted itself and can be only decrypted using a **Key**; this key is generated using a *password*. In order download the file you will need the *ID* of the file and the *Key*. Since the key isn't stored by the API will need to save it by yourself. The funny thing is that a [Hidden Service](https://2019.www.torproject.org/docs/onion-services) is created and an **.onion v3** is generated.
 
 ## Installation
 
@@ -59,6 +59,10 @@ Downloading files:
 ```bash
 $ download 1 "QRhtN5X4oGR8GxlLSEL1GJJlZgf64VXyMkx7YIbvVK4\=" FILE.EXT
 ```
+
+## Thanks
+
+[Christophe Mehay](https://github.com/cmehay) because his amazon work on [goldy/tor-hidden-service/](https://hub.docker.com/r/goldy/tor-hidden-service/)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

@@ -25,7 +25,7 @@ EOF
     echo "   -i, --init, init           Initializes the development environment."
     echo "   -s, --start, start         Starts all configured services."
     echo "   -p, --halt, halt           Stops all configured services."
-    echo "   -r, --relaod, reload       Restart all configured services."
+    echo "   -r, --reload, reload       Restart all configured services."
     echo "   -b, --rebuild, rebuild     Rebuild all configured services."
     echo "   -c, --clean, clean         Cleans containers, volumes, images."
     echo ""
