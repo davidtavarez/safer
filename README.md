@@ -26,7 +26,7 @@ $ bash manage
   \___||__|__||__| |_____||__|\_|
 ------------------------------------------------------------------------
 Usage: manage [-h]
-Usage: manage [option...] --{init|start|halt|clean|stats}
+Usage: manage [option...] --{init|start|halt|reload|rebuild|clean|onion}
 
    --- MANAGEMENT ---
    -i, --init, init           Initializes the containers.
