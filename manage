@@ -19,7 +19,7 @@ EOF
 
     echo "------------------------------------------------------------------------"
     echo "Usage: `basename $0` [-h]"
-    echo "Usage: $0 [option...] --{init|start|halt|clean|stats}"
+    echo "Usage: $0 [option...] --{init|start|halt|reload|rebuild|clean|onion}"
     echo ""
     echo "   --- MANAGEMENT ---"
     echo "   -i, --init, init           Initializes the containers."
